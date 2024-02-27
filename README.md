@@ -4,7 +4,6 @@ Code for ICLR'24 Paper "Decoupling Weighing and Selecting for Integrating Multip
 [[paper]](https://openreview.net/forum?id=c85tdYOOju)
 
 ---
-<<<<<<< HEAD
 Code will be released soon~
 
 
@@ -20,6 +19,3 @@ For node-level:
 
 
 Env:
-=======
-The code is being cleaned up and it will be released soon.
->>>>>>> 0b1fa8895936bf5fc00ce04444172ad7951ffa8a
