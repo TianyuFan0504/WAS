@@ -4,4 +4,4 @@ Code for ICLR'24 Paper "Decoupling Weighing and Selecting for Integrating Multip
 [[paper]](https://openreview.net/forum?id=c85tdYOOju)
 
 ---
-The code is being cleaned up and it will be released soon~
+The code is being cleaned up and it will be released soon.
