@@ -13,7 +13,7 @@ from splitters import random_scaffold_split, random_split, scaffold_split
 from torch_geometric.data import DataLoader
 # from util import get_num_task
 
-from datasets import MoleculeDataset
+from prepare.datasets import MoleculeDataset
 
 def Load_teacher_models(ssl_task_name,param):
     device = torch.device('cuda:' + str(param['device'])) \

@@ -145,8 +145,8 @@ def student_model(logits_list):
     for epoch in range(param['epoch']):
             
         model.train()
-        # with torch.no_grad():
-        #     model.momentum_update_key_encoder()
+        with torch.no_grad():
+            model.momentum_update_key_encoder()
         out = model(g, feats)
         logits = out.log_softmax(dim=1)
         logits_target = model.estimate_optimal_distribution(out, logits_list, param)
@@ -207,27 +207,9 @@ if __name__ == "__main__":
     parser.add_argument("--epoch", type=int, default=500)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--save_mode", type=int, default=0)
-    parser.add_argument("--data_mode", type=int, default=0)
     parser.add_argument("--m", type=float, default=0.9)
     args = parser.parse_args()
     param = args.__dict__
-
-    if param['data_mode'] == 0:
-        param['dataset'] = 'cora'
-    if param['data_mode'] == 1:
-        param['dataset'] = 'citeseer'
-    if param['data_mode'] == 2:
-        param['dataset'] = 'pubmed'
-    if param['data_mode'] == 3:
-        param['dataset'] = 'coauthor-cs'
-    if param['data_mode'] == 4:
-        param['dataset'] = 'coauthor-phy'
-    if param['data_mode'] == 5:
-        param['dataset'] = 'amazon-photo'
-    if param['data_mode'] == 6:
-        param['dataset'] = 'amazon-com'
-    if param['data_mode'] == 7:
-        param['dataset'] = 'ogbn-arxiv'
 
     ssl_task_list = ['Par', 'Clu', 'DGI', 'PairwiseDistance', 'PairwiseAttrSim']
     param['num_teachers'] = len(ssl_task_list)
@@ -300,27 +282,3 @@ if __name__ == "__main__":
             test_acc_list.append(test_acc)
             test_val_list.append(test_val)
             test_best_list.append(test_best)
-
-
-    outFile = open('../PerformMetrics.csv','a+', newline='')
-    writer = csv.writer(outFile, dialect='excel')
-    results = [time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]
-    for v, k in param.items():
-        results.append(k)
-    
-    if param['save_mode'] == 0:
-        results.append(str(ssl_acc_list))
-        results.append(str(np.mean(ssl_acc_list)))
-        results.append(str(test_acc))
-        results.append(str(test_val))
-        results.append(str(test_best))
-    else:  
-        results.append(str(ssl_acc_list))
-        results.append(str(np.mean(ssl_acc_list)))
-        results.append(str(test_val_list))
-        results.append(str(np.mean(test_acc_list)))
-        results.append(str(np.mean(test_val_list)))
-        results.append(str(np.mean(test_best_list)))
-        results.append(str(np.std(test_val_list)))
-    writer.writerow(results)
-

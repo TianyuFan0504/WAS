@@ -15,7 +15,7 @@ from sklearn.metrics import (accuracy_score, average_precision_score,
 from splitters import random_scaffold_split, random_split, scaffold_split
 from torch_geometric.data import DataLoader
 
-from datasets import MoleculeDataset
+from prepare.datasets import MoleculeDataset
 from tools import *
 
 warnings.filterwarnings("ignore", category=Warning)
@@ -200,6 +200,8 @@ if __name__ == "__main__":
     parser.add_argument('--lr', type=float, default=0.01)
     parser.add_argument('--lr_scale', type=float, default=10)
     parser.add_argument('--decay', type=float, default=0)
+    parser.add_argument("--step_size", type=int, default=100)
+    parser.add_argument("--gamma", type=float, default=0.001)
     # about molecule GNN
     parser.add_argument('--gnn_type', type=str, default='gin')
     parser.add_argument('--num_layer', type=int, default=5)
@@ -218,8 +220,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_dict", type=dict, default=0)
     parser.add_argument("--alpha", type=float, default=1.0)
     parser.add_argument("--m", type=float, default=0.9)
-    parser.add_argument("--step_size", type=int, default=100)
-    parser.add_argument("--gamma", type=float, default=0.001)
+
     args = parser.parse_args()
     param = args.__dict__
 
