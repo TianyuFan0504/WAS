@@ -55,3 +55,23 @@ python train.py --dataset {dataset}
 ```
 
 
+---
+### Citation
+If you are interested in our repository and our paper, please cite the following paper:
+
+```
+@inproceedings{
+fan2024decoupling,
+title={Decoupling Weighing and Selecting for Integrating Multiple Graph Pre-training Tasks},
+author={Tianyu Fan and Lirong Wu and Yufei Huang and Haitao Lin and Cheng Tan and Zhangyang Gao and Stan Z. Li},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=c85tdYOOju}
+}
+```
+
+---
+### Feedback
+If you have any issue about this work, please feel free to contact me by email:
+
+Tianyu Fan: fantianyu@zju.edu.cn
