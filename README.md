@@ -1,7 +1,7 @@
 # WAS
 Code for ICLR'24 Paper "Decoupling Weighing and Selecting for Integrating Multiple Graph Pre-training Tasks" 
 
-[[paper]](https://openreview.net/forum?id=c85tdYOOju)
+[[paper]](https://arxiv.org/abs/2403.01400)
 
 ---
 ### Introduction
@@ -59,6 +59,16 @@ python train.py --dataset {dataset}
 ### Citation
 If you are interested in our repository and our paper, please cite the following paper:
 
+```
+@misc{fan2024decoupling,
+      title={Decoupling Weighing and Selecting for Integrating Multiple Graph Pre-training Tasks}, 
+      author={Tianyu Fan and Lirong Wu and Yufei Huang and Haitao Lin and Cheng Tan and Zhangyang Gao and Stan Z. Li},
+      year={2024},
+      eprint={2403.01400},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
 ```
 @inproceedings{
 fan2024decoupling,
